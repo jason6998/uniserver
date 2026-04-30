@@ -529,8 +529,12 @@ begin
         us_file_search_replace(StrAllSource[i],'${PHP_INI_SELECT}',UENV_PHP_INI_SELECT); // Replace ${PHP_INI_SELECT} with UENV_PHP_INI_SELECT
         us_file_search_replace(StrAllSource[i],'${US_SERVERNAME}',UENV_US_SERVERNAME);   //Replace ${US_SERVERNAME} with UENV_US_SERVERNAME 
         us_file_search_replace(StrAllSource[i],'${US_ROOTF_WWW}',UENV_US_ROOTF_WWW);     // Replace ${US_ROOTF_WWW} with UENV_US_ROOTF_WWW
-        us_file_search_replace(StrAllSource[i],'${US_ROOTF_WWW}', UENV_US_ROOTF_WWW);    // Replace ${US_ROOTF_WWW} with UENV_US_ROOTF_WWW
         us_file_search_replace(StrAllSource[i],'${US_ROOTF_SSL}', UENV_US_ROOTF_SSL);    // Replace ${US_ROOTF_SSL} with UENV_US_ROOTF_SSL
+        //相容於 UltraWebServer 2025/06/06 By Jason
+        us_file_search_replace(StrAllSource[i],'${AP_SERVERNAME}',UENV_US_SERVERNAME);   //Replace ${US_SERVERNAME} with UENV_US_SERVERNAME
+        us_file_search_replace(StrAllSource[i],'${AP_ROOTF_WWW}',UENV_US_ROOTF_WWW);     // Replace ${US_ROOTF_WWW} with UENV_US_ROOTF_WWW
+        us_file_search_replace(StrAllSource[i],'${AP_ROOTF_SSL}', UENV_US_ROOTF_SSL);    // Replace ${US_ROOTF_SSL} with UENV_US_ROOTF_SSL
+
     end;
 
 end;

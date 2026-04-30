@@ -237,7 +237,7 @@ begin
   for i:=0 to sList_Files.Count-1 do              // Scan file line by line
    begin
      exe_name := ExtractFileName(sList_Files[i]); // Get File name
-     if ExecRegExpr('^httpd_[\d|\w]+\.exe$',  exe_name) Then
+     if ExecRegExpr({'^httpd_[\d|\w]+\.exe$'} '^httpd(?:_\w+)?\.exe$',  exe_name) {相容 UltraWebServer by Jason 2025/6/6} Then
       begin
          us_get_apache_exe := exe_name; // Set exe name
          Break;
@@ -271,7 +271,7 @@ begin
   for i:=0 to sList_Files.Count-1 do          // Scan file line by line
     begin
      exe_name := ExtractFileName(sList_Files[i]);  // Get File name
-     if ExecRegExpr('^mysqld_[\d|\w]+\.exe$',  exe_name) Then
+     if ExecRegExpr({'^mysqld_[\d|\w]+\.exe$'} '^mysqld(?:_\w+)?\.exe$',  exe_name) Then {相容 UltraWebServer by Jason 2025/6/6}
       begin
          us_get_mysql_exe := exe_name; // Set exe name
          Break;
