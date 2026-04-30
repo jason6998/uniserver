@@ -850,7 +850,8 @@ begin
   for i:=0 to sList_Files.Count-1 do              // Scan file line by line
    begin
      exe_name := ExtractFileName(sList_Files[i]); // Get File name
-     if ExecRegExpr('^httpd_[\d|\w]+\.exe$',  exe_name) Then
+     //if ExecRegExpr('^httpd_[\d|\w]+\.exe$',  exe_name) Then
+     if ExecRegExpr('^httpd(?:_\w+)?\.exe$',  exe_name) {Jason 修正於 2025/6/6 相容 UltraWebServer} Then
       begin
          us_get_apache_exe := exe_name; // Set exe name
          Break;
